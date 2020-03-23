@@ -47,6 +47,25 @@ body{
 [tabindex="-1"]:focus{
 	outline:0!important}
 
+#sidebar {
+	float: right;
+	width: 240px;
+	border-left: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding: 100px 100px 100px 100px;
+	margin-top: 15px;
+}
+
+
+#sidebar .block_title {
+	background: #e0e0e0;
+	margin: 0 0 10px;
+	padding: 5px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+}
 
 #footer {
     position: fixed; /* Фиксированное положение */
