@@ -1,4 +1,4 @@
-importScripts('https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js');
+
 document.addEventListener("DOMContentLoaded", function () {
 
 	
