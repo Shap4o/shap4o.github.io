@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>С Днём Аплифта</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,24 +17,24 @@
       radial-gradient(circle at 30% 80%, #ffff00 0 14%, transparent 15%),
       radial-gradient(circle at 70% 70%, #00ff00 0 9%, transparent 10%),
       repeating-linear-gradient(45deg, #ff66cc 0 24px, #66ccff 24px 48px);
-    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
-    padding: 20px;
-    overflow: hidden;
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 16px;
+    overflow-x: hidden;
   }
 
   .card {
-    width: 460px;
+    width: 100%;
+    max-width: 460px;
     background: #fffbe6;
-    border: 10px solid #00ff00;
-    border-radius: 30px;
-    box-shadow: 0 0 0 10px #ffff00, 0 0 0 18px #ff00ff, 0 22px 44px rgba(0,0,0,.45);
-    padding: 18px 16px 16px;
+    border: 8px solid #00ff00;
+    border-radius: 26px;
+    box-shadow: 0 0 0 8px #ffff00, 0 0 0 14px #ff00ff, 0 18px 36px rgba(0,0,0,.45);
+    padding: 16px 12px 14px;
     position: relative;
     overflow: hidden;
     text-align: center;
   }
 
-  /* радуга */
   .rainbow {
     position: absolute;
     top: -160px;
@@ -52,45 +53,43 @@
 
   .content { position: relative; z-index: 3; }
 
-  /* ---- ряд животных ---- */
   .pets {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 4px;
+    gap: 3px;
     margin-bottom: 4px;
   }
   .pet {
-    font-size: 46px;
+    font-size: 40px;
     line-height: 1;
     display: inline-block;
     animation: bounce 1.6s ease-in-out infinite;
     filter: drop-shadow(2px 2px 0 #ff00ff);
   }
-  .pet:nth-child(1) { animation-delay: 0s;   font-size: 38px; }
-  .pet:nth-child(2) { animation-delay: .15s; font-size: 52px; }
-  .pet:nth-child(3) { animation-delay: .3s;  font-size: 44px; }
-  .pet:nth-child(4) { animation-delay: .45s; font-size: 56px; }
-  .pet:nth-child(5) { animation-delay: .6s;  font-size: 38px; }
-  .pet:nth-child(6) { animation-delay: .75s; font-size: 50px; }
-  .pet:nth-child(7) { animation-delay: .9s;  font-size: 40px; }
+  .pet:nth-child(1) { animation-delay: 0s;   font-size: 32px; }
+  .pet:nth-child(2) { animation-delay: .15s; font-size: 46px; }
+  .pet:nth-child(3) { animation-delay: .3s;  font-size: 38px; }
+  .pet:nth-child(4) { animation-delay: .45s; font-size: 50px; }
+  .pet:nth-child(5) { animation-delay: .6s;  font-size: 32px; }
+  .pet:nth-child(6) { animation-delay: .75s; font-size: 44px; }
+  .pet:nth-child(7) { animation-delay: .9s;  font-size: 36px; }
   @keyframes bounce {
     0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-12px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
   }
 
-  /* ---- смайлики-графики ---- */
   .charts {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 8px 0 6px;
+    gap: 8px;
+    margin: 6px 0 4px;
   }
   .chart {
-    font-size: 34px;
+    font-size: 28px;
     display: inline-block;
     animation: pulse 1.2s ease-in-out infinite;
-    filter: drop-shadow(0 0 6px #00ff88);
+    filter: drop-shadow(0 0 5px #00ff88);
   }
   .chart:nth-child(2) { animation-delay: .2s; }
   .chart:nth-child(3) { animation-delay: .4s; }
@@ -100,47 +99,79 @@
     50% { transform: scale(1.18); }
   }
 
-  h1 {
-    font-size: 40px;
-    line-height: 1.02;
-    color: #ff0000;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 0 #ffff00, 6px 6px 0 #00ffff, 9px 9px 0 #ff00ff;
-    margin: 6px 0 12px;
-    letter-spacing: 1px;
+  /* ---- «вырезанные из журналов» буквы ---- */
+  .cutout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px 3px;
+    margin: 8px 0 10px;
+    line-height: 1;
   }
+  .cutout .word {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+  }
+  .letter {
+    display: inline-block;
+    font-weight: 900;
+    padding: 4px 6px 3px;
+    border-radius: 4px;
+    transform: rotate(var(--r, 0deg)) translateY(var(--y, 0px));
+    box-shadow: 2px 3px 0 rgba(0,0,0,.35);
+    font-family: "Arial Black", "Helvetica Neue", Impact, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-size: var(--s, 30px);
+    line-height: .9;
+    border: 2px solid rgba(0,0,0,.25);
+  }
+  /* разные «журнальные» стили */
+  .l1 { background:#ff2d55; color:#fff; }
+  .l2 { background:#ffe600; color:#111; --r:-6deg; }
+  .l3 { background:#00c853; color:#fff; --r:5deg; }
+  .l4 { background:#2979ff; color:#fff; --r:-3deg; }
+  .l5 { background:#ff9100; color:#111; --r:7deg; }
+  .l6 { background:#d500f9; color:#fff; --r:-8deg; }
+  .l7 { background:#00e5ff; color:#111; --r:4deg; }
+  .l8 { background:#fff; color:#d50000; --r:-5deg; border:2px dashed #d50000; }
+  .l9 { background:#111; color:#ffe600; --r:6deg; }
+  .l10{ background:#ff4081; color:#fff; --r:-4deg; }
+  .l11{ background:#76ff03; color:#111; --r:3deg; }
+  .l12{ background:#651fff; color:#fff; --r:-7deg; }
 
-  /* ---- летающая ерунда ---- */
   .float {
     position: absolute;
-    font-size: 30px;
+    font-size: 26px;
     z-index: 2;
     animation: floaty 3s ease-in-out infinite;
     pointer-events: none;
     user-select: none;
   }
-  .f1 { top: 10px;  left: 12px;  animation-delay: 0s; }
-  .f2 { top: 16px;  right: 14px; animation-delay: .4s; }
-  .f3 { bottom: 12px; left: 18px; animation-delay: .8s; }
-  .f4 { bottom: 8px;  right: 12px; animation-delay: 1.2s; }
-  .f5 { top: 44%; left: -4px; animation-delay: .6s; font-size: 26px; }
-  .f6 { top: 52%; right: -2px; animation-delay: 1s; font-size: 26px; }
+  .f1 { top: 8px;  left: 8px;  animation-delay: 0s; }
+  .f2 { top: 12px; right: 10px; animation-delay: .4s; }
+  .f3 { bottom: 10px; left: 12px; animation-delay: .8s; }
+  .f4 { bottom: 6px;  right: 8px; animation-delay: 1.2s; }
+  .f5 { top: 44%; left: -2px; animation-delay: .6s; font-size: 22px; }
+  .f6 { top: 52%; right: 0; animation-delay: 1s; font-size: 22px; }
   @keyframes floaty {
     0%, 100% { transform: translateY(0) rotate(-10deg); }
-    50% { transform: translateY(-14px) rotate(10deg); }
+    50% { transform: translateY(-12px) rotate(10deg); }
   }
 
-  /* пиксельные звёздочки */
   .sparkle {
     position: absolute;
-    font-size: 20px;
+    font-size: 18px;
     animation: blink 1s steps(2) infinite;
     z-index: 2;
   }
-  .s1 { top: 70px; left: 64px; }
-  .s2 { top: 100px; right: 58px; animation-delay: .3s; }
-  .s3 { bottom: 90px; left: 46px; animation-delay: .6s; }
-  .s4 { bottom: 70px; right: 70px; animation-delay: .9s; }
+  .s1 { top: 64px; left: 54px; }
+  .s2 { top: 94px; right: 48px; animation-delay: .3s; }
+  .s3 { bottom: 84px; left: 40px; animation-delay: .6s; }
+  .s4 { bottom: 64px; right: 60px; animation-delay: .9s; }
   @keyframes blink {
     0%, 49% { opacity: 1; }
     50%, 100% { opacity: 0; }
@@ -151,7 +182,6 @@
   <div class="card">
     <div class="rainbow"></div>
 
-    <!-- летающая ерунда -->
     <div class="float f1">🐸</div>
     <div class="float f2">🍕</div>
     <div class="float f3">🦆</div>
@@ -165,7 +195,6 @@
     <div class="sparkle s4">✧</div>
 
     <div class="content">
-      <!-- животные -->
       <div class="pets">
         <span class="pet">🐱</span>
         <span class="pet">🐶</span>
@@ -176,7 +205,6 @@
         <span class="pet">🐈‍⬛</span>
       </div>
 
-      <!-- смайлики-графики -->
       <div class="charts">
         <span class="chart">📈</span>
         <span class="chart">💹</span>
@@ -184,7 +212,25 @@
         <span class="chart">📉</span>
       </div>
 
-      <h1>С Днём<br>Аплифта</h1>
+      <!-- «вырезанные» буквы -->
+      <div class="cutout" aria-label="С Днём Аплифта">
+        <div class="word">
+          <span class="letter l1" style="--s:26px;--r:-5deg">С</span>
+          <span class="letter l2" style="--s:34px;--r:4deg;--y:-2px">Д</span>
+          <span class="letter l3" style="--s:28px;--r:-3deg">Н</span>
+          <span class="letter l4" style="--s:36px;--r:6deg;--y:-3px">Ё</span>
+          <span class="letter l5" style="--s:30px;--r:-6deg">М</span>
+        </div>
+        <div class="word">
+          <span class="letter l6" style="--s:40px;--r:-4deg;--y:-2px">А</span>
+          <span class="letter l7" style="--s:30px;--r:5deg">П</span>
+          <span class="letter l8" style="--s:34px;--r:-7deg;--y:-3px">Л</span>
+          <span class="letter l9" style="--s:28px;--r:3deg">И</span>
+          <span class="letter l10" style="--s:38px;--r:-5deg;--y:-2px">Ф</span>
+          <span class="letter l11" style="--s:26px;--r:6deg">Т</span>
+          <span class="letter l12" style="--s:34px;--r:-6deg;--y:-3px">А</span>
+        </div>
+      </div>
     </div>
   </div>
 </body>
